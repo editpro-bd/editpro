@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EditPro — প্রফেশনাল ভিডিও এডিটিং</title>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --purple: #5B4FCF;
+    --purple-light: #EAE7FB;
+    --purple-dark: #3B318A;
+    --teal: #0F9E76;
+    --teal-light: #E1F5EE;
+    --dark: #0D0D0D;
+    --gray: #6B6B6B;
+    --light: #F8F7FF;
+    --white: #FFFFFF;
+    --border: rgba(91,79,207,0.15);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Hind Siliguri', sans-serif; background: var(--white); color: var(--dark); }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 40px;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .logo { font-family: 'Space Mono', monospace; font-size: 20px; color: var(--purple-dark); letter-spacing: -0.5px; }
+  .logo span { color: var(--teal); }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a { text-decoration: none; font-size: 15px; color: var(--gray); transition: color 0.2s; }
+  .nav-links a:hover { color: var(--purple); }
+  .nav-cta {
+    background: var(--purple); color: white; border: none;
+    padding: 9px 20px; border-radius: 8px; font-family: 'Hind Siliguri', sans-serif;
+    font-size: 15px; cursor: pointer; transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--purple-dark); }
+
+  /* HERO */
+  .hero {
+    min-height: 88vh;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; padding: 60px 24px;
+    background: var(--light);
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -80px; right: -80px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(91,79,207,0.12) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; bottom: -60px; left: -60px;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(15,158,118,0.1) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: var(--purple-light); color: var(--purple-dark);
+    font-size: 13px; padding: 6px 14px; border-radius: 20px;
+    margin-bottom: 20px; font-weight: 500;
+  }
+  .hero h1 {
+    font-size: clamp(32px, 5vw, 54px);
+    font-weight: 600; line-height: 1.2;
+    color: var(--dark); margin-bottom: 16px;
+    max-width: 680px;
+  }
+  .hero h1 span { color: var(--purple); }
+  .hero p {
+    font-size: 17px; color: var(--gray);
+    max-width: 500px; line-height: 1.7; margin-bottom: 32px;
+  }
+  .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+  .btn-main {
+    background: var(--purple); color: white; border: none;
+    padding: 13px 28px; border-radius: 10px;
+    font-family: 'Hind Siliguri', sans-serif; font-size: 16px;
+    cursor: pointer; transition: transform 0.15s, box-shadow 0.15s;
+    box-shadow: 0 4px 16px rgba(91,79,207,0.3);
+  }
+  .btn-main:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(91,79,207,0.4); }
+  .btn-outline {
+    background: transparent; color: var(--purple);
+    border: 1.5px solid var(--purple);
+    padding: 13px 28px; border-radius: 10px;
+    font-family: 'Hind Siliguri', sans-serif; font-size: 16px;
+    cursor: pointer; transition: background 0.2s;
+  }
+  .btn-outline:hover { background: var(--purple-light); }
+
+  /* STATS */
+  .stats-bar {
+    display: flex; justify-content: center; gap: 0;
+    border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    background: white;
+  }
+  .stat-item {
+    flex: 1; max-width: 200px;
+    text-align: center; padding: 28px 20px;
+    border-right: 1px solid var(--border);
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-num { font-family: 'Space Mono', monospace; font-size: 28px; color: var(--purple); font-weight: 700; }
+  .stat-label { font-size: 13px; color: var(--gray); margin-top: 4px; }
+
+  /* SECTIONS */
+  section { padding: 72px 40px; }
+  .section-label { font-size: 13px; color: var(--teal); font-weight: 500; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; }
+  .section-title { font-size: clamp(24px, 3vw, 36px); font-weight: 600; color: var(--dark); margin-bottom: 12px; }
+  .section-sub { font-size: 16px; color: var(--gray); line-height: 1.7; max-width: 500px; }
+  .section-header { margin-bottom: 40px; }
+
+  /* SERVICES */
+  #services { background: var(--light); }
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+  .service-card {
+    background: white; border: 1px solid var(--border);
+    border-radius: 14px; padding: 28px 24px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .service-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(91,79,207,0.12); }
+  .svc-icon {
+    width: 48px; height: 48px; border-radius: 12px;
+    background: var(--purple-light); display: flex; align-items: center; justify-content: center;
+    font-size: 22px; margin-bottom: 16px;
+  }
+  .service-card h3 { font-size: 17px; font-weight: 600; margin-bottom: 8px; }
+  .service-card p { font-size: 14px; color: var(--gray); line-height: 1.6; }
+  .svc-price { margin-top: 14px; font-size: 15px; color: var(--purple); font-weight: 600; }
+
+  /* PORTFOLIO */
+  .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+  .portfolio-card {
+    border-radius: 14px; overflow: hidden; position: relative;
+    aspect-ratio: 16/9; cursor: pointer;
+    transition: transform 0.2s;
+  }
+  .portfolio-card:hover { transform: scale(1.02); }
+  .portfolio-card:hover .play-btn { opacity: 1; }
+  .port-bg {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 15px; font-weight: 500;
+  }
+  .pb1 { background: linear-gradient(135deg, #EEEDFE, #C8C2F4); color: var(--purple-dark); }
+  .pb2 { background: linear-gradient(135deg, #E1F5EE, #9FE1CB); color: #085041; }
+  .pb3 { background: linear-gradient(135deg, #FAECE7, #F5C4B3); color: #712B13; }
+  .pb4 { background: linear-gradient(135deg, #E6F1FB, #B5D4F4); color: #0C447C; }
+  .play-btn {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(0,0,0,0.35); opacity: 0; transition: opacity 0.2s;
+    font-size: 40px; color: white;
+  }
+
+  /* PRICING */
+  #pricing { background: var(--light); }
+  .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+  .price-card {
+    background: white; border: 1px solid var(--border);
+    border-radius: 14px; padding: 28px 24px;
+  }
+  .price-card.featured {
+    background: var(--purple-dark); color: white;
+    border-color: var(--purple-dark);
+  }
+  .price-card.featured .price-label,
+  .price-card.featured .price-desc,
+  .price-card.featured li { color: rgba(255,255,255,0.75); }
+  .price-label { font-size: 13px; color: var(--gray); margin-bottom: 8px; font-weight: 500; }
+  .price-amount { font-family: 'Space Mono', monospace; font-size: 28px; font-weight: 700; color: var(--purple); }
+  .price-card.featured .price-amount { color: #9FE1CB; }
+  .price-desc { font-size: 13px; color: var(--gray); margin: 10px 0 20px; line-height: 1.6; }
+  .price-card ul { list-style: none; }
+  .price-card li { font-size: 14px; color: var(--gray); padding: 6px 0; border-top: 1px solid var(--border); }
+  .price-card.featured li { border-color: rgba(255,255,255,0.15); }
+  .price-card li::before { content: '✓ '; color: var(--teal); font-weight: 700; }
+  .price-card.featured li::before { color: #9FE1CB; }
+  .price-btn {
+    width: 100%; margin-top: 20px;
+    padding: 11px; border-radius: 8px; border: 1.5px solid var(--purple);
+    background: transparent; color: var(--purple);
+    font-family: 'Hind Siliguri', sans-serif; font-size: 15px; cursor: pointer;
+    transition: background 0.2s;
+  }
+  .price-btn:hover { background: var(--purple-light); }
+  .price-card.featured .price-btn {
+    background: white; color: var(--purple-dark); border-color: white;
+  }
+  .popular-badge {
+    display: inline-block; background: #9FE1CB; color: #085041;
+    font-size: 11px; padding: 3px 10px; border-radius: 20px; margin-bottom: 12px; font-weight: 600;
+  }
+
+  /* TESTIMONIALS */
+  .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+  .testi-card {
+    background: var(--light); border: 1px solid var(--border);
+    border-radius: 14px; padding: 24px;
+  }
+  .stars { color: #F5A623; font-size: 16px; margin-bottom: 12px; }
+  .testi-text { font-size: 14px; color: var(--dark); line-height: 1.7; margin-bottom: 16px; }
+  .testi-author { display: flex; align-items: center; gap: 10px; }
+  .avatar {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: var(--purple-light); color: var(--purple-dark);
+    font-size: 15px; font-weight: 600;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .author-name { font-size: 14px; font-weight: 600; }
+  .author-sub { font-size: 12px; color: var(--gray); }
+
+  /* CONTACT */
+  #contact {
+    background: var(--purple-dark); color: white;
+    text-align: center;
+  }
+  #contact .section-label { color: #9FE1CB; }
+  #contact .section-title { color: white; }
+  #contact .section-sub { color: rgba(255,255,255,0.65); margin: 0 auto 36px; }
+  .contact-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .contact-btn {
+    display: flex; align-items: center; gap: 8px;
+    padding: 13px 22px; border-radius: 10px; text-decoration: none;
+    font-family: 'Hind Siliguri', sans-serif; font-size: 15px;
+    border: 1.5px solid rgba(255,255,255,0.3); color: white;
+    background: rgba(255,255,255,0.08); transition: background 0.2s;
+  }
+  .contact-btn:hover { background: rgba(255,255,255,0.15); }
+  .contact-btn.whatsapp { background: #25D366; border-color: #25D366; }
+  .contact-btn.whatsapp:hover { background: #1EB85A; }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark); color: rgba(255,255,255,0.4);
+    text-align: center; padding: 20px;
+    font-size: 13px;
+  }
+
+  /* MOBILE */
+  @media (max-width: 640px) {
+    nav { padding: 14px 20px; }
+    .nav-links { display: none; }
+    section { padding: 52px 20px; }
+    .stats-bar { flex-wrap: wrap; }
+    .stat-item { border-right: none; border-bottom: 1px solid var(--border); }
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-badge { animation: fadeUp 0.5s ease both; }
+  .hero h1 { animation: fadeUp 0.5s 0.1s ease both; }
+  .hero p { animation: fadeUp 0.5s 0.2s ease both; }
+  .hero-btns { animation: fadeUp 0.5s 0.3s ease both; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Edit<span>Pro</span></div>
+  <ul class="nav-links">
+    <li><a href="#services">সেবা</a></li>
+    <li><a href="#portfolio">পোর্টফোলিও</a></li>
+    <li><a href="#pricing">মূল্য</a></li>
+    <li><a href="#contact">যোগাযোগ</a></li>
+  </ul>
+  <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">কাজ দিন</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">✦ ভিডিও এডিটিং সার্ভিস — ঢাকা, বাংলাদেশ</div>
+  <h1>আপনার ভিডিওকে <span>অসাধারণ</span> করে তুলুন</h1>
+  <p>YouTube, Reels, Wedding, Corporate — যেকোনো ভিডিও প্রফেশনালভাবে এডিট করি। দ্রুত ডেলিভারি, সাশ্রয়ী মূল্য।</p>
+  <div class="hero-btns">
+    <button class="btn-main" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">বিনামূল্যে পরামর্শ নিন</button>
+    <button class="btn-outline" onclick="document.getElementById('portfolio').scrollIntoView({behavior:'smooth'})">কাজ দেখুন</button>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat-item"><div class="stat-num">200+</div><div class="stat-label">সম্পন্ন প্রজেক্ট</div></div>
+  <div class="stat-item"><div class="stat-num">50+</div><div class="stat-label">সন্তুষ্ট ক্লায়েন্ট</div></div>
+  <div class="stat-item"><div class="stat-num">৩ বছর</div><div class="stat-label">অভিজ্ঞতা</div></div>
+  <div class="stat-item"><div class="stat-num">24hrs</div><div class="stat-label">দ্রুত ডেলিভারি</div></div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-header">
+    <div class="section-label">আমাদের সেবা</div>
+    <div class="section-title">কী কী করি?</div>
+    <div class="section-sub">সব ধরনের ভিডিও এডিটিং — আপনার চাহিদামতো।</div>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="svc-icon">▶️</div>
+      <h3>YouTube ভিডিও</h3>
+      <p>Thumbnail থেকে শুরু করে এন্ড স্ক্রিন পর্যন্ত — পুরো প্যাকেজ এডিটিং।</p>
+      <div class="svc-price">৳ ৫০০ থেকে শুরু</div>
+    </div>
+    <div class="service-card">
+      <div class="svc-icon">📱</div>
+      <h3>Reels / Shorts</h3>
+      <p>Viral হওয়ার মতো শর্ট ভিডিও — ট্রেন্ডি ট্রানজিশন ও ইফেক্ট সহ।</p>
+      <div class="svc-price">৳ ৩০০ থেকে শুরু</div>
+    </div>
+    <div class="service-card">
+      <div class="svc-icon">💍</div>
+      <h3>Wedding ভিডিও</h3>
+      <p>বিয়ের অনুষ্ঠানের সুন্দর স্মৃতি সিনেমাটিক স্টাইলে।</p>
+      <div class="svc-price">৳ ২,০০০ থেকে শুরু</div>
+    </div>
+    <div class="service-card">
+      <div class="svc-icon">💼</div>
+      <h3>Corporate ভিডিও</h3>
+      <p>প্রোডাক্ট রিভিউ, কোম্পানি প্রোফাইল, প্রেজেন্টেশন ভিডিও।</p>
+      <div class="svc-price">৳ ১,৫০০ থেকে শুরু</div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="section-header">
+    <div class="section-label">পোর্টফোলিও</div>
+    <div class="section-title">আমাদের কাজ</div>
+    <div class="section-sub">কিছু সাম্প্রতিক প্রজেক্ট।</div>
+  </div>
+  <div class="portfolio-grid">
+    <div class="portfolio-card">
+      <div class="port-bg pb1">🎬 YouTube Vlog — ভ্রমণ সিরিজ</div>
+      <div class="play-btn">▶</div>
+    </div>
+    <div class="portfolio-card">
+      <div class="port-bg pb2">💍 Wedding Cinematic Reel</div>
+      <div class="play-btn">▶</div>
+    </div>
+    <div class="portfolio-card">
+      <div class="port-bg pb3">📱 Brand Promotional Ad</div>
+      <div class="play-btn">▶</div>
+    </div>
+    <div class="portfolio-card">
+      <div class="port-bg pb4">🎭 Short Film Edit</div>
+      <div class="play-btn">▶</div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="section-header">
+    <div class="section-label">মূল্য তালিকা</div>
+    <div class="section-title">সাশ্রয়ী প্যাকেজ</div>
+    <div class="section-sub">কোনো লুকানো চার্জ নেই।</div>
+  </div>
+  <div class="pricing-grid">
+    <div class="price-card">
+      <div class="price-label">বেসিক</div>
+      <div class="price-amount">৳৫০০</div>
+      <div class="price-desc">ছোট ভিডিও বা Reels এর জন্য।</div>
+      <ul>
+        <li>৫ মিনিট পর্যন্ত</li>
+        <li>Color Correction</li>
+        <li>Background Music</li>
+        <li>১টি রিভিশন</li>
+      </ul>
+      <button class="price-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">বুক করুন</button>
+    </div>
+    <div class="price-card featured">
+      <div class="popular-badge">⭐ সবচেয়ে জনপ্রিয়</div>
+      <div class="price-label">স্ট্যান্ডার্ড</div>
+      <div class="price-amount">৳১,২০০</div>
+      <div class="price-desc">YouTube বা Corporate ভিডিওর জন্য।</div>
+      <ul>
+        <li>১৫ মিনিট পর্যন্ত</li>
+        <li>Color Grading</li>
+        <li>Motion Graphics</li>
+        <li>Subtitles</li>
+        <li>৩টি রিভিশন</li>
+      </ul>
+      <button class="price-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">বুক করুন</button>
+    </div>
+    <div class="price-card">
+      <div class="price-label">প্রিমিয়াম</div>
+      <div class="price-amount">৳২,৫০০</div>
+      <div class="price-desc">Wedding বা বড় প্রজেক্টের জন্য।</div>
+      <ul>
+        <li>৩০+ মিনিট</li>
+        <li>Cinematic Color</li>
+        <li>Custom Transitions</li>
+        <li>Sound Design</li>
+        <li>আনলিমিটেড রিভিশন</li>
+      </ul>
+      <button class="price-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">বুক করুন</button>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="section-header">
+    <div class="section-label">রিভিউ</div>
+    <div class="section-title">ক্লায়েন্টরা কী বলেন</div>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <div class="testi-text">"অসাধারণ কাজ! আমার YouTube চ্যানেলের ভিউ দ্বিগুণ হয়ে গেছে। সময়মতো ডেলিভারি এবং দাম একদম সাশ্রয়ী।"</div>
+      <div class="testi-author">
+        <div class="avatar">রা</div>
+        <div><div class="author-name">রাফি আহমেদ</div><div class="author-sub">YouTuber, ঢাকা</div></div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <div class="testi-text">"বিয়ের ভিডিও দেখে মন ভরে গেছে। সিনেমাটিক টাচ দিয়েছে, একদম প্রফেশনাল মনে হয়েছে!"</div>
+      <div class="testi-author">
+        <div class="avatar">না</div>
+        <div><div class="author-name">নাহিদা ইসলাম</div><div class="author-sub">গৃহিণী, চট্টগ্রাম</div></div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <div class="testi-text">"আমাদের কোম্পানির প্রোমো ভিডিও একদম পারফেক্ট হয়েছে। অনেক ক্লায়েন্ট কমেন্ট করেছেন।"</div>
+      <div class="testi-author">
+        <div class="avatar">সা</div>
+        <div><div class="author-name">সাকিব হাসান</div><div class="author-sub">ব্যবসায়ী, সিলেট</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">যোগাযোগ</div>
+  <div class="section-title">কাজ দিতে চান?</div>
+  <div class="section-sub">আজই মেসেজ করুন — বিনামূল্যে পরামর্শ দেওয়া হয়।</div>
+  <div class="contact-btns">
+    <a href="https://wa.me/8801XXXXXXXXX" class="contact-btn whatsapp">📱 WhatsApp করুন</a>
+    <a href="mailto:editpro@email.com" class="contact-btn">✉️ ইমেইল করুন</a>
+    <a href="https://facebook.com/editpro" class="contact-btn">👍 Facebook পেজ</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  &copy; 2026 EditPro · সব স্বত্ব সংরক্ষিত · ঢাকা, বাংলাদেশ
+</footer>
+
+</body>
+</html>
