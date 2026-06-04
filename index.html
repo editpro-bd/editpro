@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EditPro — প্রফেশনাল ভিডিও এডিটিং</title>
-<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<title>EditPro — Professional Video Editing</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --purple: #5B4FCF;
@@ -20,9 +20,8 @@
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-  body { font-family: 'Hind Siliguri', sans-serif; background: var(--white); color: var(--dark); }
+  body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--dark); }
 
-  /* NAV */
   nav {
     position: sticky; top: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
@@ -38,12 +37,11 @@
   .nav-links a:hover { color: var(--purple); }
   .nav-cta {
     background: var(--purple); color: white; border: none;
-    padding: 9px 20px; border-radius: 8px; font-family: 'Hind Siliguri', sans-serif;
+    padding: 9px 20px; border-radius: 8px; font-family: 'Inter', sans-serif;
     font-size: 15px; cursor: pointer; transition: background 0.2s;
   }
   .nav-cta:hover { background: var(--purple-dark); }
 
-  /* HERO */
   .hero {
     min-height: 88vh;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -86,7 +84,7 @@
   .btn-main {
     background: var(--purple); color: white; border: none;
     padding: 13px 28px; border-radius: 10px;
-    font-family: 'Hind Siliguri', sans-serif; font-size: 16px;
+    font-family: 'Inter', sans-serif; font-size: 16px;
     cursor: pointer; transition: transform 0.15s, box-shadow 0.15s;
     box-shadow: 0 4px 16px rgba(91,79,207,0.3);
   }
@@ -95,12 +93,11 @@
     background: transparent; color: var(--purple);
     border: 1.5px solid var(--purple);
     padding: 13px 28px; border-radius: 10px;
-    font-family: 'Hind Siliguri', sans-serif; font-size: 16px;
+    font-family: 'Inter', sans-serif; font-size: 16px;
     cursor: pointer; transition: background 0.2s;
   }
   .btn-outline:hover { background: var(--purple-light); }
 
-  /* STATS */
   .stats-bar {
     display: flex; justify-content: center; gap: 0;
     border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
@@ -115,14 +112,12 @@
   .stat-num { font-family: 'Space Mono', monospace; font-size: 28px; color: var(--purple); font-weight: 700; }
   .stat-label { font-size: 13px; color: var(--gray); margin-top: 4px; }
 
-  /* SECTIONS */
   section { padding: 72px 40px; }
   .section-label { font-size: 13px; color: var(--teal); font-weight: 500; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; }
   .section-title { font-size: clamp(24px, 3vw, 36px); font-weight: 600; color: var(--dark); margin-bottom: 12px; }
   .section-sub { font-size: 16px; color: var(--gray); line-height: 1.7; max-width: 500px; }
   .section-header { margin-bottom: 40px; }
 
-  /* SERVICES */
   #services { background: var(--light); }
   .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
   .service-card {
@@ -140,7 +135,6 @@
   .service-card p { font-size: 14px; color: var(--gray); line-height: 1.6; }
   .svc-price { margin-top: 14px; font-size: 15px; color: var(--purple); font-weight: 600; }
 
-  /* PORTFOLIO */
   .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
   .portfolio-card {
     border-radius: 14px; overflow: hidden; position: relative;
@@ -165,7 +159,6 @@
     font-size: 40px; color: white;
   }
 
-  /* PRICING */
   #pricing { background: var(--light); }
   .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
   .price-card {
@@ -192,7 +185,7 @@
     width: 100%; margin-top: 20px;
     padding: 11px; border-radius: 8px; border: 1.5px solid var(--purple);
     background: transparent; color: var(--purple);
-    font-family: 'Hind Siliguri', sans-serif; font-size: 15px; cursor: pointer;
+    font-family: 'Inter', sans-serif; font-size: 15px; cursor: pointer;
     transition: background 0.2s;
   }
   .price-btn:hover { background: var(--purple-light); }
@@ -204,7 +197,6 @@
     font-size: 11px; padding: 3px 10px; border-radius: 20px; margin-bottom: 12px; font-weight: 600;
   }
 
-  /* TESTIMONIALS */
   .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
   .testi-card {
     background: var(--light); border: 1px solid var(--border);
@@ -216,13 +208,12 @@
   .avatar {
     width: 40px; height: 40px; border-radius: 50%;
     background: var(--purple-light); color: var(--purple-dark);
-    font-size: 15px; font-weight: 600;
+    font-size: 13px; font-weight: 600;
     display: flex; align-items: center; justify-content: center;
   }
   .author-name { font-size: 14px; font-weight: 600; }
   .author-sub { font-size: 12px; color: var(--gray); }
 
-  /* CONTACT */
   #contact {
     background: var(--purple-dark); color: white;
     text-align: center;
@@ -234,7 +225,7 @@
   .contact-btn {
     display: flex; align-items: center; gap: 8px;
     padding: 13px 22px; border-radius: 10px; text-decoration: none;
-    font-family: 'Hind Siliguri', sans-serif; font-size: 15px;
+    font-family: 'Inter', sans-serif; font-size: 15px;
     border: 1.5px solid rgba(255,255,255,0.3); color: white;
     background: rgba(255,255,255,0.08); transition: background 0.2s;
   }
@@ -242,14 +233,12 @@
   .contact-btn.whatsapp { background: #25D366; border-color: #25D366; }
   .contact-btn.whatsapp:hover { background: #1EB85A; }
 
-  /* FOOTER */
   footer {
     background: var(--dark); color: rgba(255,255,255,0.4);
     text-align: center; padding: 20px;
     font-size: 13px;
   }
 
-  /* MOBILE */
   @media (max-width: 640px) {
     nav { padding: 14px 20px; }
     .nav-links { display: none; }
@@ -258,7 +247,6 @@
     .stat-item { border-right: none; border-bottom: 1px solid var(--border); }
   }
 
-  /* ANIMATIONS */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(24px); }
     to { opacity: 1; transform: translateY(0); }
@@ -271,82 +259,77 @@
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="logo">Edit<span>Pro</span></div>
   <ul class="nav-links">
-    <li><a href="#services">সেবা</a></li>
-    <li><a href="#portfolio">পোর্টফোলিও</a></li>
-    <li><a href="#pricing">মূল্য</a></li>
-    <li><a href="#contact">যোগাযোগ</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
-  <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">কাজ দিন</button>
+  <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Hire Me</button>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
-  <div class="hero-badge">✦ ভিডিও এডিটিং সার্ভিস — ঢাকা, বাংলাদেশ</div>
-  <h1>আপনার ভিডিওকে <span>অসাধারণ</span> করে তুলুন</h1>
-  <p>YouTube, Reels, Wedding, Corporate — যেকোনো ভিডিও প্রফেশনালভাবে এডিট করি। দ্রুত ডেলিভারি, সাশ্রয়ী মূল্য।</p>
+  <div class="hero-badge">✦ Video Editing Service — Dhaka, Bangladesh</div>
+  <h1>Make Your Videos <span>Extraordinary</span></h1>
+  <p>YouTube, Reels, Wedding, Corporate — professional video editing for every need. Fast delivery, affordable price.</p>
   <div class="hero-btns">
-    <button class="btn-main" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">বিনামূল্যে পরামর্শ নিন</button>
-    <button class="btn-outline" onclick="document.getElementById('portfolio').scrollIntoView({behavior:'smooth'})">কাজ দেখুন</button>
+    <button class="btn-main" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get Free Consultation</button>
+    <button class="btn-outline" onclick="document.getElementById('portfolio').scrollIntoView({behavior:'smooth'})">View My Work</button>
   </div>
 </section>
 
-<!-- STATS -->
 <div class="stats-bar">
-  <div class="stat-item"><div class="stat-num">200+</div><div class="stat-label">সম্পন্ন প্রজেক্ট</div></div>
-  <div class="stat-item"><div class="stat-num">50+</div><div class="stat-label">সন্তুষ্ট ক্লায়েন্ট</div></div>
-  <div class="stat-item"><div class="stat-num">৩ বছর</div><div class="stat-label">অভিজ্ঞতা</div></div>
-  <div class="stat-item"><div class="stat-num">24hrs</div><div class="stat-label">দ্রুত ডেলিভারি</div></div>
+  <div class="stat-item"><div class="stat-num">200+</div><div class="stat-label">Projects Done</div></div>
+  <div class="stat-item"><div class="stat-num">50+</div><div class="stat-label">Happy Clients</div></div>
+  <div class="stat-item"><div class="stat-num">3 yrs</div><div class="stat-label">Experience</div></div>
+  <div class="stat-item"><div class="stat-num">24hrs</div><div class="stat-label">Fast Delivery</div></div>
 </div>
 
-<!-- SERVICES -->
 <section id="services">
   <div class="section-header">
-    <div class="section-label">আমাদের সেবা</div>
-    <div class="section-title">কী কী করি?</div>
-    <div class="section-sub">সব ধরনের ভিডিও এডিটিং — আপনার চাহিদামতো।</div>
+    <div class="section-label">Our Services</div>
+    <div class="section-title">What We Do</div>
+    <div class="section-sub">All types of video editing — tailored to your needs.</div>
   </div>
   <div class="services-grid">
     <div class="service-card">
       <div class="svc-icon">▶️</div>
-      <h3>YouTube ভিডিও</h3>
-      <p>Thumbnail থেকে শুরু করে এন্ড স্ক্রিন পর্যন্ত — পুরো প্যাকেজ এডিটিং।</p>
-      <div class="svc-price">৳ ৫০০ থেকে শুরু</div>
+      <h3>YouTube Videos</h3>
+      <p>Full package editing — from thumbnail to end screen.</p>
+      <div class="svc-price">Starting from ৳500</div>
     </div>
     <div class="service-card">
       <div class="svc-icon">📱</div>
       <h3>Reels / Shorts</h3>
-      <p>Viral হওয়ার মতো শর্ট ভিডিও — ট্রেন্ডি ট্রানজিশন ও ইফেক্ট সহ।</p>
-      <div class="svc-price">৳ ৩০০ থেকে শুরু</div>
+      <p>Viral-worthy short videos with trendy transitions & effects.</p>
+      <div class="svc-price">Starting from ৳300</div>
     </div>
     <div class="service-card">
       <div class="svc-icon">💍</div>
-      <h3>Wedding ভিডিও</h3>
-      <p>বিয়ের অনুষ্ঠানের সুন্দর স্মৃতি সিনেমাটিক স্টাইলে।</p>
-      <div class="svc-price">৳ ২,০০০ থেকে শুরু</div>
+      <h3>Wedding Videos</h3>
+      <p>Beautiful cinematic memories of your special day.</p>
+      <div class="svc-price">Starting from ৳2,000</div>
     </div>
     <div class="service-card">
       <div class="svc-icon">💼</div>
-      <h3>Corporate ভিডিও</h3>
-      <p>প্রোডাক্ট রিভিউ, কোম্পানি প্রোফাইল, প্রেজেন্টেশন ভিডিও।</p>
-      <div class="svc-price">৳ ১,৫০০ থেকে শুরু</div>
+      <h3>Corporate Videos</h3>
+      <p>Product reviews, company profiles, presentation videos.</p>
+      <div class="svc-price">Starting from ৳1,500</div>
     </div>
   </div>
 </section>
 
-<!-- PORTFOLIO -->
 <section id="portfolio">
   <div class="section-header">
-    <div class="section-label">পোর্টফোলিও</div>
-    <div class="section-title">আমাদের কাজ</div>
-    <div class="section-sub">কিছু সাম্প্রতিক প্রজেক্ট।</div>
+    <div class="section-label">Portfolio</div>
+    <div class="section-title">Our Work</div>
+    <div class="section-sub">Some recent projects.</div>
   </div>
   <div class="portfolio-grid">
     <div class="portfolio-card">
-      <div class="port-bg pb1">🎬 YouTube Vlog — ভ্রমণ সিরিজ</div>
+      <div class="port-bg pb1">🎬 YouTube Vlog — Travel Series</div>
       <div class="play-btn">▶</div>
     </div>
     <div class="portfolio-card">
@@ -364,105 +347,101 @@
   </div>
 </section>
 
-<!-- PRICING -->
 <section id="pricing">
   <div class="section-header">
-    <div class="section-label">মূল্য তালিকা</div>
-    <div class="section-title">সাশ্রয়ী প্যাকেজ</div>
-    <div class="section-sub">কোনো লুকানো চার্জ নেই।</div>
+    <div class="section-label">Pricing</div>
+    <div class="section-title">Affordable Packages</div>
+    <div class="section-sub">No hidden charges.</div>
   </div>
   <div class="pricing-grid">
     <div class="price-card">
-      <div class="price-label">বেসিক</div>
-      <div class="price-amount">৳৫০০</div>
-      <div class="price-desc">ছোট ভিডিও বা Reels এর জন্য।</div>
+      <div class="price-label">Basic</div>
+      <div class="price-amount">৳500</div>
+      <div class="price-desc">For short videos or Reels.</div>
       <ul>
-        <li>৫ মিনিট পর্যন্ত</li>
+        <li>Up to 5 minutes</li>
         <li>Color Correction</li>
         <li>Background Music</li>
-        <li>১টি রিভিশন</li>
+        <li>1 Revision</li>
       </ul>
-      <button class="price-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">বুক করুন</button>
+      <button class="price-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book Now</button>
     </div>
     <div class="price-card featured">
-      <div class="popular-badge">⭐ সবচেয়ে জনপ্রিয়</div>
-      <div class="price-label">স্ট্যান্ডার্ড</div>
-      <div class="price-amount">৳১,২০০</div>
-      <div class="price-desc">YouTube বা Corporate ভিডিওর জন্য।</div>
+      <div class="popular-badge">⭐ Most Popular</div>
+      <div class="price-label">Standard</div>
+      <div class="price-amount">৳1,200</div>
+      <div class="price-desc">For YouTube or Corporate videos.</div>
       <ul>
-        <li>১৫ মিনিট পর্যন্ত</li>
+        <li>Up to 15 minutes</li>
         <li>Color Grading</li>
         <li>Motion Graphics</li>
         <li>Subtitles</li>
-        <li>৩টি রিভিশন</li>
+        <li>3 Revisions</li>
       </ul>
-      <button class="price-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">বুক করুন</button>
+      <button class="price-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book Now</button>
     </div>
     <div class="price-card">
-      <div class="price-label">প্রিমিয়াম</div>
-      <div class="price-amount">৳২,৫০০</div>
-      <div class="price-desc">Wedding বা বড় প্রজেক্টের জন্য।</div>
+      <div class="price-label">Premium</div>
+      <div class="price-amount">৳2,500</div>
+      <div class="price-desc">For Wedding or large projects.</div>
       <ul>
-        <li>৩০+ মিনিট</li>
+        <li>30+ minutes</li>
         <li>Cinematic Color</li>
         <li>Custom Transitions</li>
         <li>Sound Design</li>
-        <li>আনলিমিটেড রিভিশন</li>
+        <li>Unlimited Revisions</li>
       </ul>
-      <button class="price-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">বুক করুন</button>
+      <button class="price-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book Now</button>
     </div>
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
 <section id="testimonials">
   <div class="section-header">
-    <div class="section-label">রিভিউ</div>
-    <div class="section-title">ক্লায়েন্টরা কী বলেন</div>
+    <div class="section-label">Reviews</div>
+    <div class="section-title">What Clients Say</div>
   </div>
   <div class="testimonials-grid">
     <div class="testi-card">
       <div class="stars">★★★★★</div>
-      <div class="testi-text">"অসাধারণ কাজ! আমার YouTube চ্যানেলের ভিউ দ্বিগুণ হয়ে গেছে। সময়মতো ডেলিভারি এবং দাম একদম সাশ্রয়ী।"</div>
+      <div class="testi-text">"Amazing work! My YouTube channel views doubled. On-time delivery and very affordable price."</div>
       <div class="testi-author">
-        <div class="avatar">রা</div>
-        <div><div class="author-name">রাফি আহমেদ</div><div class="author-sub">YouTuber, ঢাকা</div></div>
+        <div class="avatar">RA</div>
+        <div><div class="author-name">Rafi Ahmed</div><div class="author-sub">YouTuber, Dhaka</div></div>
       </div>
     </div>
     <div class="testi-card">
       <div class="stars">★★★★★</div>
-      <div class="testi-text">"বিয়ের ভিডিও দেখে মন ভরে গেছে। সিনেমাটিক টাচ দিয়েছে, একদম প্রফেশনাল মনে হয়েছে!"</div>
+      <div class="testi-text">"The wedding video was absolutely beautiful. The cinematic touch made it look truly professional!"</div>
       <div class="testi-author">
-        <div class="avatar">না</div>
-        <div><div class="author-name">নাহিদা ইসলাম</div><div class="author-sub">গৃহিণী, চট্টগ্রাম</div></div>
+        <div class="avatar">NI</div>
+        <div><div class="author-name">Nahida Islam</div><div class="author-sub">Homemaker, Chittagong</div></div>
       </div>
     </div>
     <div class="testi-card">
       <div class="stars">★★★★★</div>
-      <div class="testi-text">"আমাদের কোম্পানির প্রোমো ভিডিও একদম পারফেক্ট হয়েছে। অনেক ক্লায়েন্ট কমেন্ট করেছেন।"</div>
+      <div class="testi-text">"Our company promo video turned out perfect. Many clients have commented on how great it looks."</div>
       <div class="testi-author">
-        <div class="avatar">সা</div>
-        <div><div class="author-name">সাকিব হাসান</div><div class="author-sub">ব্যবসায়ী, সিলেট</div></div>
+        <div class="avatar">SH</div>
+        <div><div class="author-name">Sakib Hasan</div><div class="author-sub">Businessman, Sylhet</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
-  <div class="section-label">যোগাযোগ</div>
-  <div class="section-title">কাজ দিতে চান?</div>
-  <div class="section-sub">আজই মেসেজ করুন — বিনামূল্যে পরামর্শ দেওয়া হয়।</div>
+  <div class="section-label">Contact</div>
+  <div class="section-title">Want to Work Together?</div>
+  <div class="section-sub">Message us today — free consultation available.</div>
   <div class="contact-btns">
-    <a href="https://wa.me/8801XXXXXXXXX" class="contact-btn whatsapp">📱 WhatsApp করুন</a>
-    <a href="mailto:editpro@email.com" class="contact-btn">✉️ ইমেইল করুন</a>
-    <a href="https://facebook.com/editpro" class="contact-btn">👍 Facebook পেজ</a>
+    <a href="https://wa.me/8801XXXXXXXXX" class="contact-btn whatsapp">📱 WhatsApp Us</a>
+    <a href="mailto:editpro@email.com" class="contact-btn">✉️ Send Email</a>
+    <a href="https://facebook.com/editpro" class="contact-btn">👍 Facebook Page</a>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
-  &copy; 2026 EditPro · সব স্বত্ব সংরক্ষিত · ঢাকা, বাংলাদেশ
+  &copy; 2026 EditPro · All Rights Reserved · Dhaka, Bangladesh
 </footer>
 
 </body>
